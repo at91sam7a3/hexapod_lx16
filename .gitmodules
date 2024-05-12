@@ -1,0 +1,6 @@
+[submodule "lib/hexapod_kinematics"]
+	path = lib/hexapod_kinematics
+	url = https://github.com/at91sam7a3/hexapod_kinematics
+[submodule "lib/lx16lib"]
+	path = lib/lx16lib
+	url = https://github.com/at91sam7a3/lx16lib
