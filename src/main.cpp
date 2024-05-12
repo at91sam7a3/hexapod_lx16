@@ -1,5 +1,6 @@
 #include "lib/hexapod_kinematics/src/platform.hpp"
 #include "lib/lx16lib/lx16driver.h"
+#include <wiringPi.h>
 
 static lx16driver driver("/dev/ttyS0", true);
 
