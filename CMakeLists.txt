@@ -8,4 +8,4 @@ add_subdirectory("${CMAKE_SOURCE_DIR}/lib/hexapod_kinematics")
 aux_source_directory(src/ SRC_LIST)
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 
-target_link_libraries(lx16tool lx16lib hexapod_kinematics)
+target_link_libraries(hexapod_lx16 lx16lib hexapod)
