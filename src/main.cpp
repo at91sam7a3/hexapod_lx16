@@ -1,6 +1,8 @@
 #include "lib/hexapod_kinematics/src/platform.hpp"
 #include "lib/lx16lib/lx16driver.h"
 #include <wiringPi.h>
+#include <chrono>
+#include <thread>
 
 static lx16driver driver("/dev/ttyS0", true);
 
@@ -12,7 +14,8 @@ void setServo(int id, double angle)
 
 void sleepMs(int sleepTime)
 {
-    ;
+    using namespace std::chrono_literals;
+    std::this_thread::sleep_for(sleepTime##ms);
 }
 
 void turnOnPowerToLegs()
@@ -27,6 +30,23 @@ int main(int argc, char *argv[])
     std::cout << (driver.isOperational() ? "Servo driver OK" : "Servo driver failed to start") << std::endl;
     turnOnPowerToLegs();
     hexapod::Platform platform(&sleepMs, &setServo);
-    platform.ParkLegs();
+    platform.parkLegs();
+    std::cout<<"To start moving, enter next data"<<std::endl;
+    float x,y,r=0;
+
+    
+    std::cout<<"X: ";
+    std::cin>>x;
+    std::cout<<std::endl;
+    std::cout<<"Y: ";
+    std::cin>>y;
+    std::cout<<std::endl;
+    std::cout<<"R: ";
+    std::cin>>r;
+    std::cout<<std::endl;
+    platform.setVelocity({x,y},r);
+    platform.startMovementThread();
+    std::cout<<"Movement started, press enter to exit"<<std::endl;
+    std::cin>>x;
     return 0;
 }
