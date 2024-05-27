@@ -1,5 +1,5 @@
-#include "lib/hexapod_kinematics/src/platform.hpp"
-#include "lib/lx16lib/lx16driver.h"
+#include "../lib/hexapod_kinematics/src/platform.hpp"
+#include "../lib/lx16lib/lx16driver.h"
 #include <wiringPi.h>
 #include <chrono>
 #include <thread>
@@ -15,7 +15,7 @@ void setServo(int id, double angle)
 void sleepMs(int sleepTime)
 {
     using namespace std::chrono_literals;
-    std::this_thread::sleep_for(sleepTime##ms);
+    std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
 }
 
 void turnOnPowerToLegs()
