@@ -10,8 +10,8 @@ include(/home/oleksii/cmake-test/PI.cmake)
       set(CMAKE_USE_PTHREADS_INIT 1)
       set(THREADS_PREFER_PTHREAD_FLAG ON)
 
-add_subdirectory("${CMAKE_SOURCE_DIR}/lib/lx16lib")
-add_subdirectory("${CMAKE_SOURCE_DIR}/lib/hexapod_kinematics")
+add_subdirectory("${CMAKE_SOURCE_DIR}../lx16lib")
+add_subdirectory("${CMAKE_SOURCE_DIR}../hexapod_kinematics")
 
 aux_source_directory(src/ SRC_LIST)
 add_executable(${PROJECT_NAME} ${SRC_LIST})
