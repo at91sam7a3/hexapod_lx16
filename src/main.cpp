@@ -73,8 +73,8 @@ int main(int argc, char *argv[])
     std::cout << "R: ";
     std::cin >> r;
     std::cout << std::endl;
-   // platform.setVelocity({x, y}, r);
-    //platform.startMovementThread();
+     platform.setVelocity({x, y}, r);
+    platform.startMovementThread();
     std::cout << "Movement started, press enter to exit" << std::endl;
     std::cin >> x;
     return 0;
