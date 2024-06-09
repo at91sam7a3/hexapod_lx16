@@ -48,7 +48,7 @@ void checkServos()
         std::pair<int,int> bounds = driver.GetAngleLimits(i);
         std::cout<<"Limits "<<bounds.first<<" .. "<<bounds.second<<std::endl;
         std::cout<<"Current angle "<<driver.ServoPositionRead(i)<<std::endl;
-        std::cout<<"Status = "<<(int)driver.GetServoErrorStatus<<std::endl;
+        std::cout<<"Status = "<<(int)driver.GetServoErrorStatus(i)<<std::endl;
     }
 }
 
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
               << std::endl;
     turnOnPowerToLegs();
     hexapod::Platform platform(&sleepMs, &setServo);
-    checkServos();
+    //checkServos();
     platform.parkLegs();
     std::cout << "To start moving, enter next data" << std::endl;
     float x, y, r = 0;
