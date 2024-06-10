@@ -8,7 +8,7 @@ static lx16driver driver("/dev/ttyS0", true);
 
 void setServo(int id, double angle)
 {
-    int angleToLx = (angle + 45.0) / 0.27;
+    int angleToLx = (angle * 4.28) + 115; //125-875
     driver.ServoMoveTimeWrite(id, angleToLx, 100);
 }
 
